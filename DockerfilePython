@@ -1,0 +1,9 @@
+FROM python:3.7
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /remix
+WORKDIR /remix
+COPY ./api/requirements.txt /remix/api/requirements.txt
+COPY ./api/main.py /remix/api/main.py
+ADD . /remix/
+EXPOSE 8000
+RUN pip install -r ./api/requirements.txt
