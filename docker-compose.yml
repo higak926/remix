@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    container_name: remix_app
+    build:
+      context: .
+      dockerfile: DockerfileNode
+    command: sh -c "cd remix-app && npm run dev"
+    volumes:
+      - .:/remix
+    tty: true
+    ports:
+      - 3000:3000
